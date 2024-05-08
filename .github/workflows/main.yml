@@ -5,12 +5,7 @@ name: FlexiRelief
       - main
 jobs:
   build:
-    runs-on: '${{ matrix.os }}'
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-          - windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -20,6 +15,6 @@ jobs:
           python-version: 3.9
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt  
+          pip install -r requirements.txt 
       - name: Run Streamlit app
         run: streamlit run main.py
