@@ -1,0 +1,25 @@
+name: FlexiRelief
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: '${{ matrix.os }}'
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.1
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  
+      - name: Run Streamlit app
+        run: streamlit run main.py
