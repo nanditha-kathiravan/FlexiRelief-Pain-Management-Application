@@ -18,3 +18,5 @@ jobs:
           pip install -r requirements.txt 
       - name: Run Streamlit app
         run: streamlit run main.py
+      - name: Stop workflow execution
+        run: exit 0
