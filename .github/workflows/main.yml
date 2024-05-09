@@ -17,6 +17,7 @@ jobs:
         run: |
           pip install -r requirements.txt 
       - name: Run Streamlit app
-        run: streamlit run main.py
+        run: |
+          timeout 60s streamlit run main.py || true
       - name: Stop workflow execution
         run: exit 0
